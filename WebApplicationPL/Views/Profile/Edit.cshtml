@@ -1,0 +1,104 @@
+﻿@using WebApplicationPL.Infrastructure;
+
+@model WebApplicationPL.Models.ProfileEditViewModel
+
+@{
+    ViewBag.Title = "Edit Profile user " + Model.Login;
+}
+
+<style>
+
+</style>
+
+<div class="container">
+    <div class="col-md-offset-2 col-md-8">
+        <div class="row">
+            <h2>@ViewBag.Title</h2>
+            <hr />
+
+            <div class="col-md-4">
+                <div class="profile-edit-image-container horizontal-center">
+                    <img src="@Url.Action("Avatar", "Photo", new { Model.UserId })"
+                         width="200" height="200" class="img-rounded" />
+                </div>
+            </div>
+
+            <div class="col-md-8 profile-edit-text-fields-container">
+                @using (Html.BeginForm("Edit", "Profile", FormMethod.Post,
+                            new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.UserId)
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Login, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.BirthDate, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.EditorFor(m => m.BirthDate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Avatar, new { @class = "col-md-4 control-label" })
+                        <div class="col-md-8">
+                            @Html.UploadImageInput("avatar", "avatar")
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-offset-4 col-md-3 col-xs-6">
+                            <input type="submit" class="btn btn-primary pull-right" value="Save" />
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            @Html.ActionLink("Cancel", "Index", "Profile", new { id = Model.UserId }, new { @class = "btn btn-warning" })
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    @Styles.Render("~/styles/uploadImageInput") 
+    @Styles.Render("~/styles/profile")
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/scripts/uploadImageInput")
+}
+

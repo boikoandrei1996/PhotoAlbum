@@ -1,0 +1,80 @@
+[
+  {
+    "Login": "Messi_Barcelona",
+    "Password": "10_Messi",
+    "RoleId": 1,
+    "Profile": {
+      "FirstName": "Leo",
+      "LastName": "Messi",
+      "Email": "Leo.Messi@gmail.com",
+      "BirthDate": "24/06/1987",
+      "AvatarPhoto": "avatars\\messi.jpeg",
+      "AvatarMimeType": "image/jpeg"
+    }
+  },
+  {
+    "Login": "Ronaldo_RealMadrid",
+    "Password": "7_Ronaldo",
+    "RoleId": 2,
+    "Profile": {
+      "FirstName": "Cristiano",
+      "LastName": "Ronaldo",
+      "Email": "Cris.Ronaldo@gmail.com",
+      "BirthDate": "05/02/1985",
+      "AvatarPhoto": "avatars\\ronaldo.jpg",
+      "AvatarMimeType": "image/jpeg"
+    }
+  },
+  {
+    "Login": "Gerrard_Liverpool",
+    "Password": "8_Gerrard",
+    "RoleId": 3,
+    "Profile":  {
+      "FirstName": "Steven",
+      "LastName": "Gerrard",
+      "Email": "Stev.Gerrard@gmail.com",
+      "BirthDate": "30/05/1980",
+      "AvatarPhoto": "avatars\\gerrard.jpg",
+      "AvatarMimeType": "image/jpeg"
+    }
+  },
+  {
+    "Login": "Lampard_Chelsea",
+    "Password": "8_Lampard",
+    "RoleId": 3,
+    "Profile": {
+      "FirstName": "Frank",
+      "LastName": "Lampard",
+      "Email": "Frank.Lampard@gmail.com",
+      "BirthDate": "20/06/1978",
+      "AvatarPhoto": "avatars\\lampard.jpg",
+      "AvatarMimeType": "image/jpeg"
+    }
+  },
+  {
+    "Login": "BoikoAdnrei1996",
+    "Password": "123456",
+    "RoleId": 1,
+    "Profile": {
+      "FirstName": "Andrei",
+      "LastName": "Boiko",
+      "Email": "BoikoAdnrei1996@gmail.com",
+      "BirthDate": "16/10/1996",
+      "AvatarPhoto": "avatars\\andrei.jpg",
+      "AvatarMimeType": "image/jpeg"
+    }
+  },
+  {
+    "Login": "user123",
+    "Password": "user123",
+    "RoleId": 3,
+    "Profile": {
+      "FirstName": "User",
+      "LastName": "123",
+      "Email": "User123@gmail.com",
+      "BirthDate": "04/09/1989",
+      "AvatarPhoto": "avatars\\defaultAvatar.png",
+      "AvatarMimeType": "image/png"
+    }
+  }
+]

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WebApplicationPL.Models.AdminViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    string columnAvatar = "Avatar";
+}
+
+<h2>All users</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th class="admin-table-heading-item text-center">
+            @columnAvatar
+        </th>
+        <th class="admin-table-heading-item">
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th class="admin-table-heading-item">
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+        <th class="admin-table-heading-item">
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th class="admin-table-heading-item">
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th class="admin-table-heading-item">
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th class="admin-table-heading-item">
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </th>
+        <th class="admin-table-heading-item">
+            @Html.DisplayNameFor(model => model.RoleName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            <img src="@Url.Action("Avatar", "Photo", new { item.UserId })" 
+                 width="100" height="100" class="img-circle" />
+        </td>
+        <td class="admin-table-item">
+            <b>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </b>
+        </td>
+        <td class="admin-table-item">
+            @Html.DisplayFor(modelItem => item.Login)
+        </td>
+        <td class="admin-table-item">
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td class="admin-table-item">
+            @Html.DisplayFor(modelItem => item.Lastname)
+        </td>
+        <td class="admin-table-item">
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td class="admin-table-item">
+            @Html.DisplayFor(modelItem => item.Birthdate)
+        </td>
+        <td class="admin-table-item">
+            <b>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </b>
+        </td>
+
+        <td class="admin-table-item">
+            @if (HttpContext.Current.User.IsInRole("admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", "Admin", new { userId = item.UserId }, new { @class = "btn btn-warning" });
+                <span> | </span>
+            }            
+            @Html.ActionLink("Details", item.UserId.ToString(), "Profile", null, new { @class = "btn btn-info" }) |
+            
+            @Html.ActionLink("Delete", "Delete", "Admin", new { userId = item.UserId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

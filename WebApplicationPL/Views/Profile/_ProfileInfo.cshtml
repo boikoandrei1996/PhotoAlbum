@@ -1,0 +1,87 @@
+﻿@model WebApplicationPL.Models.ProfileInfoViewModel
+
+<div class="col-md-5">
+    <div class="horizontal-center profile-img-container">
+        <img src="@Url.Action("Avatar", "Photo", new { Model.UserId })" 
+             width="200" height="200" class="img-rounded" />
+    </div>
+</div>
+
+<div class="col-md-6">            
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Login, new { @class = "col-md-4 col-xs-5 control-label" })
+        <div class="col-md-8 col-xs-7">
+            @Html.DisplayFor(m => m.Login, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-4 col-xs-5 control-label" })
+        <div class="col-md-8 col-xs-7">
+            @Html.DisplayFor(m => m.FirstName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.LastName, new { @class = "col-md-4 col-xs-5 control-label" })
+        <div class="col-md-8 col-xs-7">
+            @Html.DisplayFor(m => m.LastName, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-4 col-xs-5 control-label" })
+        <div class="col-md-8 col-xs-7">
+            @Html.DisplayFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Age, new { @class = "col-md-4 col-xs-5 control-label" })
+        <div class="col-md-8 col-xs-7">
+            @Html.DisplayFor(m => m.Age, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+
+
+@if (Request.IsAuthenticated && HttpContext.Current.User.Identity.Name == Model.Login)
+{
+    using (Html.BeginForm("Delete", "Profile", FormMethod.Post, new { id = "deleteProfileForm" }))
+    {
+        @Html.AntiForgeryToken();
+        @Html.HiddenFor(m => m.UserId)
+    }
+
+    <div class="col-md-1">
+        <div class="btn-group">
+            <a class="btn dropdown-toggle btn-info" data-toggle="dropdown">
+                Action <span class="icon-cog icon-white"></span><span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href=@Url.Action("Upload", "Photo")>
+                        <span class="glyphicon glyphicon-plus"></span> Add photo
+                    </a>
+                </li>
+                
+                <li>
+                    <a href=@Url.Action("List", "Photo", new { Model.UserId })>
+                        <span class="glyphicon glyphicon-picture"></span> Modify photo
+                    </a>
+                </li>
+
+                <li>
+                    <a href=@Url.Action("Edit", "Profile", new { id = Model.UserId})>
+                        <span class="glyphicon glyphicon-wrench"></span> Modify profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="submitDeleteProfileForm">
+                        <span class="glyphicon glyphicon-trash"></span> Delete profile
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+}

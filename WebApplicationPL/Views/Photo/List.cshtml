@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApplicationPL.Models.EditPhotoViewModel>
+
+@{
+    ViewBag.Title = "Delete photos";
+    string header = "All your photos";
+}
+
+<div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+    <h2 class="text-center">@header</h2>
+
+    <div class="table-results">
+        @foreach (var item in Model)
+        {
+            <div class="row table-results-row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="row">
+                        <div class="table-results-row-img-container horizontal-center">
+                            <img src=@Url.Action("Get", "Photo", new { photoId = item.PhotoId })
+                                 width="150" height="150" class="table-results-img img-rounded">
+                        </div>
+                        <div class="row table-results-btn-group">
+                            <div class="col-md-6 col-xs-6">
+                                @Html.ActionLink("Edit", "Edit", "Photo", new { photoId = item.PhotoId },
+                                                new { @class = "btn btn-sm btn-warning pull-right table-results-btn" })
+                            </div>
+                            <div class="col-md-6 col-xs-6">
+                                @using (Html.BeginForm("Delete", "Photo", FormMethod.Post))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="photoId" value="@item.PhotoId" />
+                                    <input type="submit" class="btn btn-sm btn-danger pull-left table-results-btn" value="Delete" />
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-12 well">
+                    <div class="text-center vcenter table-results-text">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

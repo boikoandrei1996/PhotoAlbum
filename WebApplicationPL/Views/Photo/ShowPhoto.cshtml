@@ -1,0 +1,103 @@
+﻿@using System.Globalization;
+@model WebApplicationPL.Models.ShowPhotoViewModel
+
+@{
+    ViewBag.Title = $"Photo/{Model.PhotoId}";
+
+    AjaxOptions ajaxOptionsAdd = new AjaxOptions
+    {
+        UpdateTargetId = "spanLikeCount",
+        LoadingElementId = "ajaxLoadingLikeAction",
+        LoadingElementDuration = 10
+    };
+
+    AjaxOptions ajaxOptionsDelete = new AjaxOptions
+    {
+        UpdateTargetId = "spanLikeCount",
+        LoadingElementId = "ajaxLoadingLikeAction",
+        LoadingElementDuration = 10,
+        Confirm = "Do you want remove you like?"
+    };
+
+    AjaxOptions ajaxOptionsListLike = new AjaxOptions
+    {
+        LoadingElementId = "ajaxLoadingListLikeAction",
+        LoadingElementDuration = 10,
+        OnSuccess = "ProcessListLikes"
+    };
+}
+ 
+<div class="col-md-offset-3 col-md-6 col-xs-12 showphoto-item">
+    <div class="row horizontal-center showphoto-image-container">
+        <img src="@Url.Action("Get", "Photo", new { Model.PhotoId })"
+             width="300" height="300" class="img-rounded" />
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 col-xs-12 text-center showphoto-item-login" >
+            @Html.ActionLink(Model.Login, "Index", "Profile", new { id = Model.UserId }, null)
+        </div>
+        <div class="col-md-4 col-xs-12 ">
+            <div class="btn-group btn-group-xs btn-group-justified btn-like-container horizontal-center" role="group"> 
+                @if (Request.IsAuthenticated)
+                {
+                    <a id="submitAddLikeForm" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                }                  
+                
+                <span class="btn btn-default disabled">
+                    <span class="glyphicon glyphicon-heart"></span>
+                    <span id="spanLikeCount"> @Model.LikeCount</span>
+                </span>
+
+                @if (Request.IsAuthenticated)
+                {
+                    <a id="submitDeleteLikeForm" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-md-4 col-xs-12 text-center text-primary showphoto-item-date">
+            <span>@Model.DateCreation.ToString("d MMMM yyyy", new CultureInfo("en-Us"))</span>
+        </div>
+    </div>
+
+    <div class="row horizontal-center ajax-like-loading-container" id="ajaxLoadingLikeAction">
+        <img src="~/Content/Images/loading.gif" width="35" height="35" />
+    </div>
+
+    <div class="row showphoto-text">
+        <h4 class="well text-center">@Model.Description</h4>
+    </div>
+</div>
+
+@using (Ajax.BeginForm("Add", "Like", null, ajaxOptionsAdd, new { id = "addLikeForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.PhotoId)
+}
+
+@using (Ajax.BeginForm("Delete", "Like", null, ajaxOptionsDelete, new { id = "deleteLikeForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.PhotoId)
+}
+
+<div class="col-xs-12 col-md-offset-3 col-md-6">
+    <div class="row">        
+        @Ajax.ActionLink("Show likes", "ListLikesJson", "Like", new { photoId = Model.PhotoId },
+                            ajaxOptionsListLike, new { @class = "btn btn-info", id = "ajaxBtnListLike" })
+
+        <span id="ajaxLoadingListLikeAction" style="display: none;">
+            <img src="~/Content/Images/loading.gif" width="25" height="25" />
+        </span>
+
+        <ul class="list-group" id="ajaxListLikes"></ul>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryajax")
+}

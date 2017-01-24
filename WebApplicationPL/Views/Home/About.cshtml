@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<h2>@ViewBag.Title Photo Album</h2>
+<hr />
+<ul>
+    @foreach(var item in ViewBag.Message)
+    {
+        <li>@item</li>
+    }
+</ul>
+<hr />
+<p>Area with some additional information.</p>

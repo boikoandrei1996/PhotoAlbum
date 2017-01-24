@@ -1,0 +1,27 @@
+﻿@if (Request.IsAuthenticated)
+{
+    var login = HttpContext.Current.User.Identity.Name;
+    var userName = $"Hello, {login}.";
+
+    using (Html.BeginForm("LogOff", "Account",
+                FormMethod.Post,
+                new {
+                    id = "logoutForm",
+                    @class = "navbar-right"
+                }))
+    {
+        @Html.AntiForgeryToken()
+        
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink(userName, "IndexByLogin", "Profile", new { login = login }, new { @class = "username-navbar-text" })</li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+        <li>@Html.ActionLink("Log on", "Login", "Account")</li>
+    </ul>
+}

@@ -1,0 +1,31 @@
+﻿@using WebApplicationPL.Infrastructure;
+@using WebApplicationPL.Models;
+@model ListProfilePhotoViewModel
+
+@helper PhotoItem(ProfilePhotoItemViewModel item)
+{
+    <div>
+        <a href=@Url.Action(item.PhotoId.ToString(), "Photo")>
+            <img src="@Url.Action("Get", "Photo", new { item.PhotoId })"
+                 width="300" height="300" class="img-rounded" />
+        </a>
+    </div>
+    
+    <div class="text-center profile-photo-item-like-text">     
+        <span class="glyphicon glyphicon-heart"></span>
+        <span> @item.LikeCount</span>
+    </div>
+}
+
+<div class="row profile-photos-container">
+    @foreach (var item in Model.Photos)
+    {
+        <div class="profile-photo-item">
+            @PhotoItem(item)
+        </div>
+    }
+</div>
+
+<div class="row pagination-container">
+    @Html.PageLinks(Model.PageInfo, n => Url.Action(Model.UserId.ToString(), "Profile", new { page = n }))
+</div>

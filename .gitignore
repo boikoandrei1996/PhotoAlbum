@@ -3,3 +3,25 @@
 ################################################################################
 
 /ConsoleApplicationPL/bin/Debug/Logs/Log.Error.txt
+/ConsoleApplicationPL/Logs
+/WebApplicationPL/Logs
+/WebApplicationPL/bin
+/WebApplicationPL/obj/Debug
+/WebApplicationPL/Web.Debug.config
+/WebApplicationPL/Web.Release.config
+/WebApplicationPL/Project_Readme.html
+/WebApplicationPL/App_Data
+/packages
+/ORM/obj/Debug
+/ORM/bin/Debug
+/ModelingProject1
+/Mapping/obj/Debug
+/Mapping/bin/Debug
+/DependencyResolver/bin/Debug
+/DependencyResolver/obj/Debug
+/DAL/obj/Debug
+/DAL/bin/Debug
+/ConsoleApplicationPL/obj/Debug
+/ConsoleApplicationPL/bin
+/BLL/bin/Debug
+/BLL/obj/Debug

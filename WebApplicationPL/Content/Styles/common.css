@@ -1,0 +1,183 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+input,
+select {
+    max-width: 350px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.footer-container {
+    border-top: 2px solid brown;
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.horizontal-center {
+    display: block;
+    margin: 0px auto;
+}
+
+.username-navbar-text { 
+    color: azure;
+}
+
+.pagination-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.table-results {        
+    background-color: #f9f9f9;
+}
+
+.table-results-row {
+    padding: 5px;
+    margin-top: 10px;
+    border-top: 5px solid white;
+}
+
+.table-results-img {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.table-results-btn-group {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.table-results-btn {
+    margin-bottom: 10px;
+}
+
+.table-results-text {
+    min-height: 150px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-results-row-img-container {
+    width: 150px;
+}
+
+
+    
+.admin-table-heading-item {
+    color: cornflowerblue;
+}
+
+.admin-table-item {
+    /*min-height: 100px;
+    line-height: 100px;*/
+    vertical-align: middle !important;
+}
+
+
+
+.showphoto-image-container {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.showphoto-text {
+    margin-top: 10px;
+}
+
+.showphoto-item-login {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.btn-like-container {
+    max-width: 280px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.showphoto-item-date {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.ajax-like-loading-container {
+    display: none;
+    width: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.like-list-item-img {
+    margin: 10px;
+}
+
+
+
+.edit-photo-image-container {
+    width: 200px;
+}
+
+.edit-photo-textarea-label {
+    color: brown;
+    font-size: medium;
+    margin-bottom: 5px !important;
+    margin-top: 15px !important;
+}
+
+
+
+.upload-photo-textarea {
+    max-width: 435px;
+}
+
+
+
+.profile-info-container {
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.profile-img-container {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+
+
+.profile-photos-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.profile-photo-item {
+    margin: 10px;
+}
+
+.profile-photo-item-like-text {
+    margin-top: 5px;
+    color: brown;
+    font-size: large;
+}
+
+
+
+.profile-edit-image-container {
+    width: 200px;
+}
+
+.profile-edit-text-fields-container {
+    padding-top: 10px;
+}

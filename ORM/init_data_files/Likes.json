@@ -1,0 +1,74 @@
+[
+  {
+    "UserId": 1,
+    "PhotoId": 3
+  },
+  {
+    "UserId": 1,
+    "PhotoId": 7
+  },
+  {
+    "UserId": 2,
+    "PhotoId": 1
+  },
+  {
+    "UserId": 2,
+    "PhotoId": 5
+  },
+  {
+    "UserId": 2,
+    "PhotoId": 6
+  },
+  {
+    "UserId": 3,
+    "PhotoId": 3
+  },
+  {
+    "UserId": 3,
+    "PhotoId": 6
+  },
+  {
+    "UserId": 3,
+    "PhotoId": 8
+  },
+  {
+    "UserId": 4,
+    "PhotoId": 3
+  },
+  {
+    "UserId": 4,
+    "PhotoId": 6
+  },
+  {
+    "UserId": 5,
+    "PhotoId": 10
+  },
+  {
+    "UserId": 5,
+    "PhotoId": 12
+  },
+  {
+    "UserId": 5,
+    "PhotoId": 14
+  },
+  {
+    "UserId": 5,
+    "PhotoId": 6
+  },
+  {
+    "UserId": 6,
+    "PhotoId": 1
+  },
+  {
+    "UserId": 6,
+    "PhotoId": 3
+  },
+  {
+    "UserId": 6,
+    "PhotoId": 15
+  },
+  {
+    "UserId": 6,
+    "PhotoId": 10
+  }
+]

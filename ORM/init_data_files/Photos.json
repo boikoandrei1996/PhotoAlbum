@@ -1,0 +1,107 @@
+[
+  {
+    "Content": "user_photos\\barcelona.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "My football club",
+    "DateCreation": "01/01/2017",
+    "UserId": 1
+  },
+  {
+    "Content": "user_photos\\bird.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "Nice picture",
+    "DateCreation": "10/01/2017",
+    "UserId": 1
+  },
+  {
+    "Content": "user_photos\\coca-cola.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "My sponsor",
+    "DateCreation": "30/12/2016",
+    "UserId": 2
+  },
+  {
+    "Content": "user_photos\\leopards.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "Don't like Leo, but like leopards",
+    "DateCreation": "10/01/2017",
+    "UserId": 2
+  },
+  {
+    "Content": "user_photos\\lion.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "The king of animals",
+    "DateCreation": "05/01/2017",
+    "UserId": 3
+  },
+  {
+    "Content": "user_photos\\nina_dobrev.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "Beautifull actress",
+    "DateCreation": "06/01/2017",
+    "UserId": 3
+  },
+  {
+    "Content": "user_photos\\road.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "Road to home",
+    "DateCreation": "08/01/2017",
+    "UserId": 4
+  },
+  {
+    "Content": "user_photos\\scorpio.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "No comments",
+    "DateCreation": "12/01/2017",
+    "UserId": 4
+  },
+  {
+    "Content": "user_photos\\bart.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "Multfilfs Simpsons",
+    "DateCreation": "21/01/2017",
+    "UserId": 5
+  },
+  {
+    "Content": "user_photos\\boss.png",
+    "ContentMimeType": "image/png",
+    "Description": "",
+    "DateCreation": "22/01/2017",
+    "UserId": 5
+  },
+  {
+    "Content": "user_photos\\clock.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "Time is water!?",
+    "DateCreation": "22/01/2017",
+    "UserId": 6
+  },
+  {
+    "Content": "user_photos\\dobrev.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "TDV",
+    "DateCreation": "31/12/2016",
+    "UserId": 6
+  },
+  {
+    "Content": "user_photos\\micki-mouse.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "Funny",
+    "DateCreation": "12/01/2017",
+    "UserId": 1
+  },
+  {
+    "Content": "user_photos\\paris.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "The capital of ... is Paris",
+    "DateCreation": "12/01/2017",
+    "UserId": 5
+  },
+  {
+    "Content": "user_photos\\watch.jpg",
+    "ContentMimeType": "image/jpeg",
+    "Description": "How much?",
+    "DateCreation": "16/01/2017",
+    "UserId": 5
+  }
+]

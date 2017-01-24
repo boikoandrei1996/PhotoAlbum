@@ -1,0 +1,24 @@
+﻿@using WebApplicationPL.Infrastructure;
+@model WebApplicationPL.Models.ListUserViewModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="container">
+    <div class="col-md-offset-4 col-md-4 col-sm-offset-2 col-sm-8 col-xs-12">
+        <ul class="list-group" id="ListUser">
+            <li class="list-group-item list-group-item-heading text-center">Users</li>
+            @foreach (var user in Model.Users)
+            {
+                <li class="list-group-item">
+                    @Html.ActionLink(user.Login, user.Id.ToString(), "Profile")
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="container pagination-container">
+    @Html.PageLinks(Model.PageInfo, n => Url.Action("Index", "Home", new { page = n }))
+</div>

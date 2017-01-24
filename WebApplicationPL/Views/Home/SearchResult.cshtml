@@ -1,0 +1,60 @@
+﻿@using WebApplicationPL.Infrastructure;
+@using WebApplicationPL.Models;
+@model ListSearchResultViewModel
+
+@{
+    ViewBag.Title = "Search results";
+    string header = $"Search results for '{ViewBag.SearchText}'";
+}
+
+<div class="container">
+    <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10 col-xs-12">
+        <h2 class="text-center">@header</h2>
+
+        <div class="table-results">
+            @foreach (var item in Model.Results)
+            {
+            <div class="row table-results-row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="row">
+                        <div class="table-results-row-img-container horizontal-center">
+                            @if (item.TypeResult == TypeSearchResult.Profile)
+                                {
+                                <img src=@Url.Action("Avatar", "Photo", new { userId = item.Id })
+                                     width="150" height="150" class="table-results-img img-rounded">
+                                }
+                                else if (item.TypeResult == TypeSearchResult.Photo)
+                                {
+                                <img src=@Url.Action("Get", "Photo", new { photoId = item.Id })
+                                     width="150" height="150" class="table-results-img img-rounded">
+                                }
+                        </div>
+                        <div class="text-center">
+                            @if (item.TypeResult == TypeSearchResult.Profile)
+                                {
+                                @Html.ActionLink("Show...", item.Id.ToString(), "Profile",
+                                                    null, new { @class = "btn btn-info table-results-btn" });
+                                }
+                                else if (item.TypeResult == TypeSearchResult.Photo)
+                                {
+                                @Html.ActionLink("Show...", item.Id.ToString(), "photo",
+                                                    null, new { @class = "btn btn-info table-results-btn" });
+                                }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7 col-xs-12 well">
+                    <div class="text-center vcenter table-results-text">
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container pagination-container">
+    @Html.PageLinks(Model.PageInfo, n => Url.Action("SearchResult", "Home", 
+                                                new { searchText = ViewBag.SearchText, page = n }))
+</div>
